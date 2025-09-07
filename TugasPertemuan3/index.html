@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas Frame</title>
+</head>
+<frameset rows="15%,10%,*,10%" border="1">
+    <!-- Header -->
+    <frame src="header.html" name="header" scrolling="no" noresize>
+
+    <!-- Navigation Menu -->
+    <frame src="menu.html" name="menu" scrolling="no" noresize>
+
+    <!-- Main Content: kiri - tengah - kanan -->
+    <frameset cols="20%,60%,20%" border="1">
+        <frame src="left.html" name="left" scrolling="auto">
+        <frame src="home.html" name="main" scrolling="auto">
+        <frame src="right.html" name="right" scrolling="auto">
+    </frameset>
+
+    <!-- Footer -->
+    <frame src="footer.html" name="footer" scrolling="no" noresize>
+</frameset>
+</html>
