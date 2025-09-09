@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Right Content Animasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+        fieldset {
+            border: none; 
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        legend {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #0288d1;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        /* untuk Animasi masuk */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Delay untuk tiap item */
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+        .card:nth-child(4) { animation-delay: 0.8s; }
+        .card:nth-child(5) { animation-delay: 1s; }
+
+        .card a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #0288d1;
+            flex-grow: 1;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            background: #0288d1;
+        }
+        .card:hover a {
+            color: white;
+        }
+        .card i {
+            font-size: 22px;
+        }
+        .html { color: #e44d26; }
+        .css { color: #264de4; }
+        .js { color: #f0db4f; }
+        .laravel { color: #ff2d20; }
+        .react { color: #61DBFB; }
+    </style>
+</head>
+<body>
+    <h3>Materi Pembelajaran Fullstack</h3>
+    <fieldset>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-brands fa-html5 html"></i>
+                <a href="https://www.w3schools.com/html/" target="_blank">HTML Tutorial</a>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-css3-alt css"></i>
+                <a href="https://www.w3schools.com/css/" target="_blank">CSS Tutorial</a>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-square-js js"></i>
+                <a href="https://www.w3schools.com/js/" target="_blank">JavaScript Tutorial</a>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-laravel laravel"></i>
+                <a href="https://laravel.com/docs" target="_blank">Laravel Docs</a>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-react react"></i>
+                <a href="https://react.dev" target="_blank">ReactJS Official</a>
+            </div>
+        </div>
+    </fieldset>
+</body>
+</html>

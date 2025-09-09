@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link Sosial Media Teman</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+        fieldset {
+            border: none; 
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        legend {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #0288d1;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        /* untuk animasi */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Delay animasi agar muncul bergantian */
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+        .card:nth-child(4) { animation-delay: 0.8s; }
+        .card:nth-child(5) { animation-delay: 1s; }
+
+        .card a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #0288d1;
+            flex-grow: 1;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            background: grey;
+        }
+        .card:hover a {
+            color: white;
+        }
+        .card i {
+            font-size: 22px;
+        }
+        .tiktok { color: #000; }
+        .instagram { color: #E1306C; }
+    </style>
+</head>
+<body>
+    <h3>Link Sosial Media Teman</h3>
+    <fieldset>
+        
+        <div class="grid">
+            <div class="card">
+                <i class="fa-brands fa-tiktok tiktok"></i>
+                <a href="https://www.tiktok.com/@ajinbzr?_t=ZS-8zWp2qKmBJC&_r=1" target="_blank">Feri Ramadan</a>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-instagram instagram"></i>
+                <a href="https://www.instagram.com/sisk_aaa19?igsh=ZG11aXMyamxhMWR6" target="_blank">Siska</a>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-tiktok tiktok"></i>
+                <a href="https://www.tiktok.com/@f4tur1999?_t=ZS-8zWp5e1HhTO&_r=1" target="_blank">Faturahman</a>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-tiktok tiktok"></i>
+                <a href="https://www.tiktok.com/@nurfadillahkomalasari?_t=ZS-8zWp6hr6J44&_r=1" target="_blank">Nur Fadilah</a>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-instagram instagram"></i>
+                <a href="https://www.instagram.com/lammm865?igsh=MXUzb3B6end6M24zeg==" target="_blank">M Shafwan</a>
+            </div>
+        </div>
+    </fieldset>
+</body>
+</html>
