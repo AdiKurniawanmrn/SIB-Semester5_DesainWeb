@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>TugasPertemuan 1 - Menghitung Luas</title>
+</head>
+<body>
+  <h1>Menghitung Luas Bangun Datar</h1>
+
+  <script>
+    //Fungsi untuk menghitung luas persegi panjang
+    function luasPersegiPanjang(panjang, lebar) {
+      return panjang * lebar;
+    }
+
+    //Fungsi untuk menghitung luas bujur sangkar
+    function luasBujurSangkar(sisi) {
+      return sisi * sisi;
+    }
+
+    // Fungsi untuk menghitung luas segitiga
+    function luasSegitiga(alas, tinggi) {
+      return 0.5 * alas * tinggi;
+    }
+
+    // Nilai input yang di butuhkan 
+    let panjang = 10, lebar = 8, sisi = 5, alas = 12, tinggi = 6;
+
+    // Menghitung hasil
+    let hasilPersegiPanjang = luasPersegiPanjang(panjang, lebar);
+    let hasilBujurSangkar = luasBujurSangkar(sisi);
+    let hasilSegitiga = luasSegitiga(alas, tinggi);
+
+    // Menulis langsung ke halaman
+    document.write("<p>Luas Persegi Panjang = " + hasilPersegiPanjang + "</p>");
+    document.write("<p>Luas Bujur Sangkar = " + hasilBujurSangkar + "</p>");
+    document.write("<p>Luas Segitiga = " + hasilSegitiga + "</p>");
+  </script>
+</body>
+</html>
