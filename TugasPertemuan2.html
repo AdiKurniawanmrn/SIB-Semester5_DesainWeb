@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tugas 2 - Data Pegawai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f4f6f9;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    table {
+      border-collapse: collapse;
+      width: 95%;
+      margin: auto;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    thead {
+      background: #37516b;
+      color: white;
+    }
+    thead th {
+      padding: 10px;
+      text-align: center;
+    }
+    tbody td, tfoot td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    tfoot {
+      background: #f1f1f1;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Data Pegawai</h2>
+  <table id="tabelPegawai">
+    <thead>
+      <tr>
+        <th>Nama Pegawai</th>
+        <th>Umur</th>
+        <th>Jabatan</th>
+        <th>Status</th>
+        <th>Gaji Pokok</th>
+        <th>Tunjangan Jabatan</th>
+        <th>BPJS</th>
+        <th>Tunjangan Keluarga</th>
+        <th>Total Gaji</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8">TOTAL</td>
+        <td id="grandTotal"></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    // const data pegawai
+    const pegawaiList = [
+      { nama: "Dodi Prayodi", umur: 23, jabatan: "manajer", status: "Menikah" },
+      { nama: "sinta rahma", umur: 23, jabatan: "asisten manajer", status: "belum menikah" },
+      { nama: "Adryan", umur: 22, jabatan: "staff", status: "menikah" }
+    ];
+
+    // Fungsi menhitung gaji pegawai
+    function hitungGaji(p) {
+      let gapok = 0;
+      if (p.jabatan.toLowerCase() === "manajer") gapok = 15000000;
+      else if (p.jabatan.toLowerCase() === "asisten manajer") gapok = 10000000;
+      else if (p.jabatan.toLowerCase() === "staff") gapok = 5000000;
+
+      const tunjanganJabatan = 0.15 * gapok;
+      const bpjs = 0.10 * gapok;
+      const tunjanganKeluarga = (p.status.toLowerCase() === "menikah") ? 0.20 * gapok : 0;
+      const total = gapok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+      return { gapok, tunjanganJabatan, bpjs, tunjanganKeluarga, total };
+    }
+
+    const tbody = document.querySelector("#tabelPegawai tbody");
+    let grandTotal = 0;
+
+    // looping cetak setiap pegawai
+    for (let i = 0; i < pegawaiList.length; i++) {
+      const p = pegawaiList[i];
+      const g = hitungGaji(p);
+
+      let tr = document.createElement("tr");
+
+      // data utama
+      let data = [
+        p.nama,
+        p.umur,
+        p.jabatan,
+        p.status,
+        g.gapok,
+        g.tunjanganJabatan,
+        g.bpjs,
+        g.tunjanganKeluarga,
+        g.total
+      ];
+
+      // looping isi kolom
+      for (let j = 0; j < data.length; j++) {
+        let td = document.createElement("td");
+        td.textContent = (typeof data[j] === "number") ? data[j].toLocaleString("id-ID") : data[j];
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+
+      // akumulasi total semua pegawai
+      grandTotal += g.total;
+    }
+
+    // menampilkan grand total
+    document.getElementById("grandTotal").textContent = grandTotal.toLocaleString("id-ID");
+  </script>
+</body>
+</html>
