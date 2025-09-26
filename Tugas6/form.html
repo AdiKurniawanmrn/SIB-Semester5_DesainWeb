@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form User</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="form-title">Tambah Data User</h1>
+
+  <form id="user-form">
+    <input type="text" id="nama" placeholder="Nama" required>
+    <input type="number" id="umur" placeholder="Umur" required>
+    <input type="text" id="alamat" placeholder="Alamat" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <button type="submit">Simpan</button>
+  </form>
+
+  <a href="index.html">Kembali</a>
+
+  <script type="module">
+    import { store, update, users } from "./controller.js";
+
+    const params = new URLSearchParams(window.location.search);
+    const editIndex = params.get("edit");
+
+    if (editIndex !== null) {
+      document.getElementById("form-title").textContent = "Edit Data User";
+      const user = users[editIndex];
+      document.getElementById("nama").value = user.nama;
+      document.getElementById("umur").value = user.umur;
+      document.getElementById("alamat").value = user.alamat;
+      document.getElementById("email").value = user.email;
+    }
+
+    document.getElementById("user-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const user = {
+        nama: document.getElementById("nama").value,
+        umur: parseInt(document.getElementById("umur").value),
+        alamat: document.getElementById("alamat").value,
+        email: document.getElementById("email").value
+      };
+
+      if (editIndex !== null) {
+        update(editIndex, user);
+        alert("Data berhasil diubah!");
+      } else {
+        store(user);
+        alert("Data berhasil ditambahkan!");
+      }
+
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

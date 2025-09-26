@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar User</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Daftar User</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Umur</th>
+        <th>Alamat</th>
+        <th>Email</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>    
+    <tbody id="user-body"></tbody>
+  </table>
+
+  <br>
+  <a href="form.html">Tambah Data</a>
+
+  <script type="module">
+    import { index, destroy } from "./controller.js";
+
+    // supaya bisa dipanggil dari onclick
+    window.deleteUser = (i) => {
+      if (confirm("Yakin ingin menghapus data ini?")) {
+        destroy(i);
+        index();
+      }
+    };
+
+    window.editUser = (i) => {
+      window.location.href = `form.html?edit=${i}`;
+    };
+    index();
+  </script>
+</body>
+</html>
