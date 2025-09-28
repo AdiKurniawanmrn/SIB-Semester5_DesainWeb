@@ -4,6 +4,7 @@ import Footer from "./component/Footer/footer";
 import Home from "./pages/home";
 import Team from "./pages/team";
 import Contact from "./pages/contact";
+import DetailTeam from "./pages/detailteam";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/team/:id" element={<DetailTeam />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
